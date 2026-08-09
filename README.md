@@ -2,9 +2,9 @@
 
 Group a list into fixed-size batches without external dependencies.
 
-No dependencies, no service to run — just the standard library.
+TypeScript Batch relies solely on the TypeScript standard library; there is no service or dependency to install.
 
 ```
 batch.ts
 ```
-See the test next to the source for usage.
+Execute the TypeScript Batch test alongside the implementation for concrete examples.
