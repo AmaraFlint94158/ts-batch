@@ -1,10 +1,10 @@
 # Array batching
 
-Group a list into fixed-size batches without external dependencies.
+When reconciling transaction logs, partitioning a continuous stream of records into fixed-size batches is necessary. This approach, much like chunking slices in Go for concurrent ledger processing, satisfies downstream throughput limits and maintains strict auditability.
 
-TypeScript Batch relies solely on the TypeScript standard library; there is no service or dependency to install.
+The TypeScript Batch utility relies exclusively on the native standard library. Eliminating external dependencies prevents the introduction of non-deterministic behavior that could compromise the exact-once semantics required for financial calculations.
 
 ```
 batch.ts
 ```
-Execute the TypeScript Batch test alongside the implementation for concrete examples.
+Execute the accompanying test suite adjacent to the core implementation. Doing so provides concrete validation of the partitioning logic and ensures that edge cases, such as empty inputs or uneven remainders, are handled with the exactness expected in a regulated environment.
