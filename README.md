@@ -1,10 +1,9 @@
 # Array batching
 
-When reconciling transaction logs, partitioning a continuous stream of records into fixed-size batches is necessary. This approach, much like chunking slices in Go for concurrent ledger processing, satisfies downstream throughput limits and maintains strict auditability.
-
-The TypeScript Batch utility relies exclusively on the native standard library. Eliminating external dependencies prevents the introduction of non-deterministic behavior that could compromise the exact-once semantics required for financial calculations.
+Partitioning transactional events into fixed-size batches remains a strict prerequisite for maintaining ordering guarantees across distributed ledger systems. The TypeScript Batch implementation confines its scope entirely to the standard library. This mirrors the zero-dependency philosophy we expect from core Go utilities. It eliminates third-party supply chain risks. More importantly, it keeps the logic fully auditable for regulatory compliance boundaries.
 
 ```
 batch.ts
 ```
-Execute the accompanying test suite adjacent to the core implementation. Doing so provides concrete validation of the partitioning logic and ensures that edge cases, such as empty inputs or uneven remainders, are handled with the exactness expected in a regulated environment.
+
+Executing the co-located test suite provides verifiable proofs of idempotency prior to integrating the module into critical financial workflows.
